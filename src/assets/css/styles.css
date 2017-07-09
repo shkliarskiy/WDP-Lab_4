@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/* CSS Document */
+
+body {
+  font-family: Verdana, Geneva, sans-serif;
+  font-size: 12px;
+}
+
+#ved {
+  border-collapse: collapse;
+  margin: auto; /* центрирование таблицы */
+  position: relative;
+  width: 98%;
+  max-width: 1000px;
+  vertical-align: middle;
+}
+
+td, th {
+  border: solid #000 1px;
+  padding: 5px;
+}
+
+thead {
+  background: #CCC;
+}
+
+thead td, thead th {
+  padding: 2px 5px;
+  vertical-align: middle!important;
+}
+
+thead td {
+  padding: 2px 5px;
+  text-align: center;
+}
+
+tr.subtotal {
+  background-color: #EEE;
+}
+
+.expand {
+  background: url("../img/collapse_expand.gif") no-repeat center;
+}
+
+#title {
+  font-family: "Lucinda Grande",
+  "Lucinda Sans Unicode", Helvetica, Arial, Verdana, sans-serif;
+  font-size: large;
+}
+
+#flow_wind {
+  width: 100px;
+  height: 50px;
+  background-color: #eec;
+  position: absolute;
+  display: none;
+  text-align: center;
+  border: thin solid;
+}

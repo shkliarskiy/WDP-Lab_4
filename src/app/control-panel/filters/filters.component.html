@@ -1,0 +1,22 @@
+<ul class="nav navbar-nav">
+  <li class="form-inline">
+    <label class="label control-label">товар: </label>
+    <select class="form-control" [(ngModel)]="selectedTovar"
+            (change)="setTovarFilter()">
+      <option [ngValue]="allTovari">{{allTovari.NAMET}}</option>
+      <option *ngFor="let tovar of tovariList" [ngValue]="tovar">
+        {{tovar.NAMET}}
+      </option>
+    </select>
+  </li>
+  <li class="form-inline">
+    <label class="label control-label">склад: </label>
+    <input type="search" placeholder="номер складу" class="input-sm form-control"
+           (keyup)="setSkladFilter()" [(ngModel)]="selectedSklad"/>
+  </li>
+  <li class="form-inline">
+    <label class="label control-label">&nbsp;</label>
+    <button type="button" class="ui-helper-clearfix  form-control"
+            (click)="removeFilters()">&nbsp;</button>
+  </li>
+</ul>

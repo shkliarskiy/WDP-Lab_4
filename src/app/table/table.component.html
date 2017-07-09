@@ -1,0 +1,40 @@
+<table class="table table-bordered" id="ved">
+  <caption id="title">ОБОРОТНАЯ ВЕДОМОСТЬ</caption>
+  <thead>
+  <tr>
+    <th>&nbsp;</th>
+    <th class="col-xs-2 text-center">Назва товара</th>
+    <th class="col-xs-1 text-center">Номер складу</th>
+    <th class="col-xs-2 text-center">Залишок на початок місяця</th>
+    <th class="col-xs-2 text-center">Прибуток</th>
+    <th class="col-xs-2 text-center">Вибуток</th>
+    <th class="col-xs-2 text-center">Залишок на кінець місяця</th>
+  </tr>
+  <tr>
+    <td class="expand" (click)="hideDetails = !hideDetails">&nbsp;</td>
+    <td>NAMET</td>
+    <td>N</td>
+    <td>O</td>
+    <td>P</td>
+    <td>R</td>
+    <td>S</td>
+  </tr>
+  </thead>
+
+  <!-- тело таблицы создается динамически в скрипте -->
+  <tbody>
+  <ng-template ngFor let-tovar [ngForOf]="tovari" let-i="index">
+    <tr *ngIf="filterRows(tovar.KODT,tovar.N).compare()"
+        class="{{tovar.N == 0 ? 'subtotal' : 'detail' }}"
+        [hidden]="tovar.N > 0 ?  hideDetails: false">
+      <td>{{i+1}}</td>
+      <td class="text-left">{{findNamet(tovar.KODT, tovar.N)}}</td>
+      <td class="text-center">{{tovar.N > 0 ? tovar.N : ''}}</td>
+      <td class="text-right">{{tovar.O.toFixed(2)}}</td>
+      <td class="text-right">{{tovar.P.toFixed(2)}}</td>
+      <td class="text-right">{{tovar.R.toFixed(2)}}</td>
+      <td class="text-right">{{(tovar.O + tovar.P - tovar.R).toFixed(2)}}</td>
+    </tr>
+  </ng-template>
+  </tbody>
+</table>

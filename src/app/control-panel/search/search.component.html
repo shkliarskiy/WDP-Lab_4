@@ -1,0 +1,8 @@
+<ul class="nav navbar-nav navbar-right">
+  <li class="form-inline">
+    <label class="label control-label">пошук </label>
+    <input type="search" placeholder="не менше 3-х літер"
+           class="input-sm form-control"
+           (keyup)="searchText($event.target.value)">
+  </li>
+</ul>
