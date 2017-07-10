@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/map';
-import {Observable} from "rxjs";
+import {Observable} from 'rxjs';
 
 import {ITovari, ISprv} from './data';
 
@@ -13,16 +13,16 @@ export class DataService {
 
   getTovari(): Observable<ITovari[]> {
     return this.http.get('assets/db/tovari.json')
-      .map(response => response.json())
+      .map(response => response.json());
   }
 
   getSpravochnik(): Observable<ISprv[]> {
     return this.http.get('assets/db/spravochnik.json')
-      .map(response => response.json())
+      .map(response => response.json());
   }
 }
 
-export var ControlPanelFilters = {
+export let ControlPanelFilters = {
   kodTovara: <number> 999,
   nomerSklada: <number> 999
 };

@@ -26,7 +26,7 @@ thead {
 
 thead td, thead th {
   padding: 2px 5px;
-  vertical-align: middle!important;
+  vertical-align: middle !important;
 }
 
 thead td {
@@ -48,12 +48,8 @@ tr.subtotal {
   font-size: large;
 }
 
-#flow_wind {
-  width: 100px;
-  height: 50px;
-  background-color: #eec;
-  position: absolute;
-  display: none;
-  text-align: center;
-  border: thin solid;
+.label {
+  font-size: small;
+  color: lightgray;
 }
+

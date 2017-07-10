@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {DataService, ControlPanelFilters, ALL_TOVARI} from '../../data.service';
-import {ISprv} from "../../data";
+import {ISprv} from '../../data';
 
 @Component({
   selector: 'app-filters',
