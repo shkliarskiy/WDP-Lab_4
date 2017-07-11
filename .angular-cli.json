@@ -19,7 +19,11 @@
       "testTsconfig": "tsconfig.spec.json",
       "prefix": "app",
       "styles": [
-        "styles.css"
+        "./assets/css/styles.css",
+        "./assets/css/bootstrap.css",
+        "./assets/css/bootstrap-theme.css",
+        "./assets/css/bootstrap-social/bootstrap-social.css",
+        "./assets/css/font-awesome/css/font-awesome.min.css"
       ],
       "scripts": [],
       "environmentSource": "environments/environment.ts",
