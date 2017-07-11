@@ -1,40 +1,104 @@
 webpackJsonp([2,4],{
 
+/***/ 138:
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(139)(false);
+// imports
+
+
+// module
+exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n/*\n@import \"./assets/css/styles.css\";\n@import \"/src/assets/css/bootstrap.min.css\";\n@import \"/src/assets/css/bootstrap-theme.min.css\";\n@import \"/assets/css/bootstrap-social/bootstrap-social.css\";\n@import \"/assets/css/font-awesome/css/font-awesome.min.css\";\n*/\n", ""]);
+
+// exports
+
+
+/***/ }),
+
 /***/ 139:
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-exports = module.exports = __webpack_require__(61)(false);
-// imports
+/*
+	MIT License http://www.opensource.org/licenses/mit-license.php
+	Author Tobias Koppers @sokra
+*/
+// css base code, injected by the css-loader
+module.exports = function(useSourceMap) {
+	var list = [];
 
+	// return the list of modules as css string
+	list.toString = function toString() {
+		return this.map(function (item) {
+			var content = cssWithMappingToString(item, useSourceMap);
+			if(item[2]) {
+				return "@media " + item[2] + "{" + content + "}";
+			} else {
+				return content;
+			}
+		}).join("");
+	};
 
-// module
-exports.push([module.i, "@charset \"UTF-8\";\n/* CSS Document */\n\nbody {\n  font-family: Verdana, Geneva, sans-serif;\n  font-size: 12px;\n}\n\n#ved {\n  border-collapse: collapse;\n  margin: auto; /* центрирование таблицы */\n  position: relative;\n  width: 98%;\n  max-width: 1000px;\n  vertical-align: middle;\n}\n\ntd, th {\n  border: solid #000 1px;\n  padding: 5px;\n}\n\nthead {\n  background: #CCC;\n}\n\nthead td, thead th {\n  padding: 2px 5px;\n  vertical-align: middle!important;\n}\n\nthead td {\n  padding: 2px 5px;\n  text-align: center;\n}\n\ntr.subtotal {\n  background-color: #EEE;\n}\n\n.expand {\n  background: url(" + __webpack_require__(170) + ") no-repeat center;\n}\n\n#title {\n  font-family: \"Lucinda Grande\",\n  \"Lucinda Sans Unicode\", Helvetica, Arial, Verdana, sans-serif;\n  font-size: large;\n}\n\n#flow_wind {\n  width: 100px;\n  height: 50px;\n  background-color: #eec;\n  position: absolute;\n  display: none;\n  text-align: center;\n  border: thin solid;\n}\n", ""]);
+	// import a list of modules into the list
+	list.i = function(modules, mediaQuery) {
+		if(typeof modules === "string")
+			modules = [[null, modules, ""]];
+		var alreadyImportedModules = {};
+		for(var i = 0; i < this.length; i++) {
+			var id = this[i][0];
+			if(typeof id === "number")
+				alreadyImportedModules[id] = true;
+		}
+		for(i = 0; i < modules.length; i++) {
+			var item = modules[i];
+			// skip already imported module
+			// this implementation is not 100% perfect for weird media query combinations
+			//  when a module is imported multiple times with different media queries.
+			//  I hope this will never occur (Hey this way we have smaller bundles)
+			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
+				if(mediaQuery && !item[2]) {
+					item[2] = mediaQuery;
+				} else if(mediaQuery) {
+					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
+				}
+				list.push(item);
+			}
+		}
+	};
+	return list;
+};
 
-// exports
+function cssWithMappingToString(item, useSourceMap) {
+	var content = item[1] || '';
+	var cssMapping = item[3];
+	if (!cssMapping) {
+		return content;
+	}
+
+	if (useSourceMap && typeof btoa === 'function') {
+		var sourceMapping = toComment(cssMapping);
+		var sourceURLs = cssMapping.sources.map(function (source) {
+			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
+		});
+
+		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
+	}
+
+	return [content].join('\n');
+}
+
+// Adapted from convert-source-map (MIT)
+function toComment(sourceMap) {
+	// eslint-disable-next-line no-undef
+	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
+	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
+
+	return '/*# ' + data + ' */';
+}
 
 
 /***/ }),
 
-/***/ 140:
-/***/ (function(module, exports, __webpack_require__) {
-
-exports = module.exports = __webpack_require__(61)(false);
-// imports
-exports.i(__webpack_require__(139), "");
-exports.push([module.i, "@import url(/assets/css/bootstrap/dist/css/bootstrap.min.css);", ""]);
-exports.push([module.i, "@import url(/assets/css/bootstrap/dist/css/bootstrap-theme.min.css);", ""]);
-exports.push([module.i, "@import url(/assets/css/bootstrap-social/bootstrap-social.css);", ""]);
-exports.push([module.i, "@import url(/assets/css/font-awesome/css/font-awesome.min.css);", ""]);
-
-// module
-exports.push([module.i, "/* You can add global styles to this file, and also import other style files */\n", ""]);
-
-// exports
-
-
-/***/ }),
-
-/***/ 169:
+/***/ 168:
 /***/ (function(module, exports) {
 
 /*
@@ -287,114 +351,24 @@ function updateLink(linkElement, obj) {
 
 /***/ }),
 
-/***/ 170:
-/***/ (function(module, exports) {
-
-module.exports = "data:image/gif;base64,R0lGODlhFAAUAPcAAPPt7/f07eTW9+nc9eXY9u3j8+TV9vLq8OPV9/Xv7urc9OXW9u7l8ubX9uzh8/Dn8ObY9ufZ9ene9Pn27fj07fbw7sSx2OfZ9uPV9vXv7/Tt7+re9fn27PDn8uzh9Pj27fn17eXW9+vg9O/m8une9enb9ena9ffz7fLr7+/l8vXu7vXu7+vf8+3j8vLr8PDp8Orf8/n17OTX9urg9PTs7/j17Pfw7uzi82VAluXY9fPs7/Lq7/Dp8u7m8urg88Ox2GQ+lvjz7ZV3tvTv7pl9v9rK8MCuzuvi89TF28Sy2Pj17WU/lubc6u7k8urc9ffy7vTu7/j07vby7YJiqdvN78ez4W1Jnefa9LWhyWU+lrWd1HdWo9vM7+7j89rL8Mey4uvg8/Pq8LKay8Oy2KKIu+3k8+/p8qSIxX9dquPU9tTD2/bw7XZTpOLV7fjz7u/p8Pfz7pJyuKuSzere9J6EvfPr8Ofc6n9eqnlXo+TW9urf9OTV9/by7uXX9unc9ObZ9ufa9ePU9+vf9Ofb9ebZ9Vw1kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAAFAAUAAAIWwD7CBxIsKDBgwKpIFzY58wdhge1FCpEBCLBL0AmFpJjsU8RKxonVrGIJuTELF4YxjGpkQ2XjjBjypwJcyXLQi4ZljSJEuJHkyMtYtTIEaZEijMd0uyjcOnCgAAAOw=="
-
-/***/ }),
-
-/***/ 175:
+/***/ 173:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(76);
+module.exports = __webpack_require__(75);
 
 
 /***/ }),
 
-/***/ 61:
-/***/ (function(module, exports) {
-
-/*
-	MIT License http://www.opensource.org/licenses/mit-license.php
-	Author Tobias Koppers @sokra
-*/
-// css base code, injected by the css-loader
-module.exports = function(useSourceMap) {
-	var list = [];
-
-	// return the list of modules as css string
-	list.toString = function toString() {
-		return this.map(function (item) {
-			var content = cssWithMappingToString(item, useSourceMap);
-			if(item[2]) {
-				return "@media " + item[2] + "{" + content + "}";
-			} else {
-				return content;
-			}
-		}).join("");
-	};
-
-	// import a list of modules into the list
-	list.i = function(modules, mediaQuery) {
-		if(typeof modules === "string")
-			modules = [[null, modules, ""]];
-		var alreadyImportedModules = {};
-		for(var i = 0; i < this.length; i++) {
-			var id = this[i][0];
-			if(typeof id === "number")
-				alreadyImportedModules[id] = true;
-		}
-		for(i = 0; i < modules.length; i++) {
-			var item = modules[i];
-			// skip already imported module
-			// this implementation is not 100% perfect for weird media query combinations
-			//  when a module is imported multiple times with different media queries.
-			//  I hope this will never occur (Hey this way we have smaller bundles)
-			if(typeof item[0] !== "number" || !alreadyImportedModules[item[0]]) {
-				if(mediaQuery && !item[2]) {
-					item[2] = mediaQuery;
-				} else if(mediaQuery) {
-					item[2] = "(" + item[2] + ") and (" + mediaQuery + ")";
-				}
-				list.push(item);
-			}
-		}
-	};
-	return list;
-};
-
-function cssWithMappingToString(item, useSourceMap) {
-	var content = item[1] || '';
-	var cssMapping = item[3];
-	if (!cssMapping) {
-		return content;
-	}
-
-	if (useSourceMap && typeof btoa === 'function') {
-		var sourceMapping = toComment(cssMapping);
-		var sourceURLs = cssMapping.sources.map(function (source) {
-			return '/*# sourceURL=' + cssMapping.sourceRoot + source + ' */'
-		});
-
-		return [content].concat(sourceURLs).concat([sourceMapping]).join('\n');
-	}
-
-	return [content].join('\n');
-}
-
-// Adapted from convert-source-map (MIT)
-function toComment(sourceMap) {
-	// eslint-disable-next-line no-undef
-	var base64 = btoa(unescape(encodeURIComponent(JSON.stringify(sourceMap))));
-	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
-
-	return '/*# ' + data + ' */';
-}
-
-
-/***/ }),
-
-/***/ 76:
+/***/ 75:
 /***/ (function(module, exports, __webpack_require__) {
 
 // style-loader: Adds some css to the DOM by adding a <style> tag
 
 // load the styles
-var content = __webpack_require__(140);
+var content = __webpack_require__(138);
 if(typeof content === 'string') content = [[module.i, content, '']];
 // add the styles to the DOM
-var update = __webpack_require__(169)(content, {});
+var update = __webpack_require__(168)(content, {});
 if(content.locals) module.exports = content.locals;
 // Hot Module Replacement
 if(false) {
@@ -412,5 +386,5 @@ if(false) {
 
 /***/ })
 
-},[175]);
+},[173]);
 //# sourceMappingURL=styles.bundle.js.map
