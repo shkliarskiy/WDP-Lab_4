@@ -1,49 +1,49 @@
-webpackJsonp([1,4],{
+webpackJsonp([2,4],{
 
-/***/ 141:
+/***/ 155:
 /***/ (function(module, exports) {
 
 module.exports = "<app-control-panel></app-control-panel>\n\n<div class=\"row>\">\n  <div class=\"col-md-2\"></div>\n  <div class=\"col-sm-12 col-md-8\">\n    <app-table></app-table>\n  </div>\n  <div class=\"col-md-2\"></div>\n</div>\n"
 
 /***/ }),
 
-/***/ 142:
+/***/ 156:
 /***/ (function(module, exports) {
 
 module.exports = "<main class=\"container\">\n  <nav class=\"navbar navbar-inverse \" role=\"navigation\" >\n    <div class=\"container-fluid\">\n      <div class=\"row navbar-header col-sm-12\">\n        <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#controlPanel\">\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n          <span class=\"icon-bar\"></span>\n        </button>\n        <div class=\"navbar-brand\">Контрольна панель</div>\n      </div>\n      <div class=\"row collapse navbar-collapse\" id=\"controlPanel\">\n        <app-filters></app-filters>\n        <app-search></app-search>\n      </div>\n    </div>\n  </nav>\n</main>\n"
 
 /***/ }),
 
-/***/ 143:
+/***/ 157:
 /***/ (function(module, exports) {
 
 module.exports = "<ul class=\"nav navbar-nav\">\n  <li class=\"form-inline\">\n    <label class=\"label\">товар: </label>\n    <select class=\"form-control input-sm\" [(ngModel)]=\"selectedTovar\"\n            (change)=\"setTovarFilter()\">\n      <option [ngValue]=\"allTovari\">{{allTovari.NAMET}}</option>\n      <option *ngFor=\"let tovar of tovariList\" [ngValue]=\"tovar\">\n        {{tovar.NAMET}}\n      </option>\n    </select>\n  </li>\n  <li class=\"form-inline form-group\">\n    <label class=\"label control-label\">склад: </label>\n    <input type=\"search\" placeholder=\"номер складу\" class=\"input-sm form-control\"\n           (keyup)=\"setSkladFilter()\" [(ngModel)]=\"selectedSklad\"/>\n  </li>\n  <li class=\"form-inline form-group\">\n    <label class=\"label control-label\">&nbsp;</label>\n    <button type=\"button\" class=\"btn btn-sm btn-warning  input-sm form-control\"\n            (click)=\"removeFilters()\"><span class=\"glyphicon glyphicon-remove\"></span> </button>\n  </li>\n</ul>\n"
 
 /***/ }),
 
-/***/ 144:
+/***/ 158:
 /***/ (function(module, exports) {
 
 module.exports = "<ul class=\"nav navbar-nav navbar-right\">\n  <li class=\"form-inline\">\n    <label class=\"label control-label\">пошук </label>\n    <input type=\"search\" placeholder=\"не менше 3-х літер\"\n           class=\"input-sm form-control\"\n           (keyup)=\"searchText($event.target.value)\">\n  </li>\n</ul>\n"
 
 /***/ }),
 
-/***/ 145:
+/***/ 159:
 /***/ (function(module, exports) {
 
 module.exports = "<table class=\"table table-bordered\" id=\"ved\">\n  <caption id=\"title\">ОБОРОТНАЯ ВЕДОМОСТЬ</caption>\n  <thead>\n  <tr>\n    <th>&nbsp;</th>\n    <th class=\"col-xs-2 text-center\">Назва товара</th>\n    <th class=\"col-xs-1 text-center\">Номер складу</th>\n    <th class=\"col-xs-2 text-center\">Залишок на початок місяця</th>\n    <th class=\"col-xs-2 text-center\">Прибуток</th>\n    <th class=\"col-xs-2 text-center\">Вибуток</th>\n    <th class=\"col-xs-2 text-center\">Залишок на кінець місяця</th>\n  </tr>\n  <tr>\n    <td class=\"expand\" (click)=\"hideDetails = !hideDetails\">&nbsp;</td>\n    <td>NAMET</td>\n    <td>N</td>\n    <td>O</td>\n    <td>P</td>\n    <td>R</td>\n    <td>S</td>\n  </tr>\n  </thead>\n\n  <!-- тело таблицы создается динамически в скрипте -->\n  <tbody>\n  <ng-template ngFor let-tovar [ngForOf]=\"tovari\" let-i=\"index\">\n    <tr *ngIf=\"filterRows(tovar.KODT,tovar.N).compare()\"\n        class=\"{{tovar.N == 0 ? 'subtotal' : 'detail' }}\"\n        [hidden]=\"tovar.N > 0 ?  hideDetails: false\">\n      <td>{{i+1}}</td>\n      <td class=\"text-left\">{{findNamet(tovar.KODT, tovar.N)}}</td>\n      <td class=\"text-center\">{{tovar.N > 0 ? tovar.N : ''}}</td>\n      <td class=\"text-right\">{{tovar.O.toFixed(2)}}</td>\n      <td class=\"text-right\">{{tovar.P.toFixed(2)}}</td>\n      <td class=\"text-right\">{{tovar.R.toFixed(2)}}</td>\n      <td class=\"text-right\">{{(tovar.O + tovar.P - tovar.R).toFixed(2)}}</td>\n    </tr>\n  </ng-template>\n  </tbody>\n</table>\n"
 
 /***/ }),
 
-/***/ 171:
+/***/ 192:
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(73);
+module.exports = __webpack_require__(76);
 
 
 /***/ }),
 
-/***/ 29:
+/***/ 31:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -59,8 +59,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
-var http_1 = __webpack_require__(49);
-__webpack_require__(148);
+var http_1 = __webpack_require__(51);
+__webpack_require__(162);
 var DataService = (function () {
     function DataService(http) {
         this.http = http;
@@ -93,7 +93,7 @@ var _a;
 
 /***/ }),
 
-/***/ 72:
+/***/ 75:
 /***/ (function(module, exports) {
 
 function webpackEmptyContext(req) {
@@ -102,21 +102,21 @@ function webpackEmptyContext(req) {
 webpackEmptyContext.keys = function() { return []; };
 webpackEmptyContext.resolve = webpackEmptyContext;
 module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 72;
+webpackEmptyContext.id = 75;
 
 
 /***/ }),
 
-/***/ 73:
+/***/ 76:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
-var platform_browser_dynamic_1 = __webpack_require__(78);
-var app_module_1 = __webpack_require__(80);
-var environment_1 = __webpack_require__(85);
+var platform_browser_dynamic_1 = __webpack_require__(85);
+var app_module_1 = __webpack_require__(87);
+var environment_1 = __webpack_require__(92);
 if (environment_1.environment.production) {
     core_1.enableProdMode();
 }
@@ -125,7 +125,7 @@ platform_browser_dynamic_1.platformBrowserDynamic().bootstrapModule(app_module_1
 
 /***/ }),
 
-/***/ 79:
+/***/ 86:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -147,7 +147,7 @@ var AppComponent = (function () {
 AppComponent = __decorate([
     core_1.Component({
         selector: 'app-root',
-        template: __webpack_require__(141)
+        template: __webpack_require__(155)
     })
 ], AppComponent);
 exports.AppComponent = AppComponent;
@@ -155,7 +155,7 @@ exports.AppComponent = AppComponent;
 
 /***/ }),
 
-/***/ 80:
+/***/ 87:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -167,16 +167,16 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var platform_browser_1 = __webpack_require__(22);
+var platform_browser_1 = __webpack_require__(24);
 var core_1 = __webpack_require__(2);
-var forms_1 = __webpack_require__(77);
-var http_1 = __webpack_require__(49);
-var app_component_1 = __webpack_require__(79);
-var table_component_1 = __webpack_require__(84);
-var data_service_1 = __webpack_require__(29);
-var control_panel_component_1 = __webpack_require__(81);
-var filters_component_1 = __webpack_require__(82);
-var search_component_1 = __webpack_require__(83);
+var forms_1 = __webpack_require__(84);
+var http_1 = __webpack_require__(51);
+var app_component_1 = __webpack_require__(86);
+var table_component_1 = __webpack_require__(91);
+var data_service_1 = __webpack_require__(31);
+var control_panel_component_1 = __webpack_require__(88);
+var filters_component_1 = __webpack_require__(89);
+var search_component_1 = __webpack_require__(90);
 var AppModule = (function () {
     function AppModule() {
     }
@@ -205,7 +205,7 @@ exports.AppModule = AppModule;
 
 /***/ }),
 
-/***/ 81:
+/***/ 88:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -228,7 +228,7 @@ var ControlPanelComponent = (function () {
 ControlPanelComponent = __decorate([
     core_1.Component({
         selector: 'app-control-panel',
-        template: __webpack_require__(142)
+        template: __webpack_require__(156)
     })
 ], ControlPanelComponent);
 exports.ControlPanelComponent = ControlPanelComponent;
@@ -236,7 +236,7 @@ exports.ControlPanelComponent = ControlPanelComponent;
 
 /***/ }),
 
-/***/ 82:
+/***/ 89:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -252,7 +252,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
-var data_service_1 = __webpack_require__(29);
+var data_service_1 = __webpack_require__(31);
 var FiltersComponent = (function () {
     function FiltersComponent(dataService) {
         var _this = this;
@@ -281,7 +281,7 @@ var FiltersComponent = (function () {
 FiltersComponent = __decorate([
     core_1.Component({
         selector: 'app-filters',
-        template: __webpack_require__(143)
+        template: __webpack_require__(157)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof data_service_1.DataService !== "undefined" && data_service_1.DataService) === "function" && _a || Object])
 ], FiltersComponent);
@@ -291,7 +291,7 @@ var _a;
 
 /***/ }),
 
-/***/ 83:
+/***/ 90:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -341,7 +341,7 @@ var SearchComponent = (function () {
 SearchComponent = __decorate([
     core_1.Component({
         selector: 'app-search',
-        template: __webpack_require__(144)
+        template: __webpack_require__(158)
     }),
     __metadata("design:paramtypes", [])
 ], SearchComponent);
@@ -350,7 +350,7 @@ exports.SearchComponent = SearchComponent;
 
 /***/ }),
 
-/***/ 84:
+/***/ 91:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -366,8 +366,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = __webpack_require__(2);
-var data_service_1 = __webpack_require__(29);
-var _ = __webpack_require__(140);
+var data_service_1 = __webpack_require__(31);
+var _ = __webpack_require__(154);
 var TableComponent = (function () {
     function TableComponent(dataService) {
         var _this = this;
@@ -462,7 +462,7 @@ var TableComponent = (function () {
 TableComponent = __decorate([
     core_1.Component({
         selector: 'app-table',
-        template: __webpack_require__(145)
+        template: __webpack_require__(159)
     }),
     __metadata("design:paramtypes", [typeof (_a = typeof data_service_1.DataService !== "undefined" && data_service_1.DataService) === "function" && _a || Object])
 ], TableComponent);
@@ -472,7 +472,7 @@ var _a;
 
 /***/ }),
 
-/***/ 85:
+/***/ 92:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -489,5 +489,5 @@ exports.environment = {
 
 /***/ })
 
-},[171]);
+},[192]);
 //# sourceMappingURL=main.bundle.js.map
